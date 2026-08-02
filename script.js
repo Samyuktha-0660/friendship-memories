@@ -29,8 +29,8 @@ function showMessage() {
 
     document.getElementById("msg").innerHTML =
         "Dear <b>" + name + "</b>,<br><br>" +
-        "Thank you for being one of the most precious people in my life. ❤️<br>" +
-        "I wish our friendship lasts forever. 🌸🤝";
+        "Thankyou for being my healer,my therapist n gem of my life!! Truly Blessed to have u in my life,My Dear TOM 🐣🔋💖 ❤️<br>" +
+        "Youre my fav alwayss n forever🥹🐣❤️"<br>";
 }
 
 function openMemory() {
