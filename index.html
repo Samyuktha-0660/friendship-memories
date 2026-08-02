@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Friendship Memories ❤️</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff9ecf,#8ec5fc);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+}
+
+.container{
+background:#fff;
+padding:25px;
+border-radius:20px;
+width:350px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+input,textarea{
+width:90%;
+padding:10px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+button{
+padding:10px 20px;
+background:#ff4d88;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#e6005c;
+}
+
+img{
+width:180px;
+height:180px;
+border-radius:20px;
+margin-top:15px;
+}
+
+#result,#memory{
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="form">
+<h2>💖 Friendship Day 💖</h2>
+
+<input type="text" id="name" placeholder="Enter Your Name">
+
+<input type="date" id="dob">
+
+<button onclick="showMessage()">Open Surprise</button>
+
+</div>
+
+<div id="result">
+
+<h2 id="title"></h2>
+
+<p id="msg"></p>
+
+<button onclick="openMemory()">Memories ❤️</button>
+
+</div>
+
+<div id="memory">
+
+<h2>📸 Memories</h2>
+
+<img src="image1.jpeg">
+
+<h3>Leave a Memory 💌</h3>
+
+<textarea id="userMsg" placeholder="Write something..."></textarea>
+
+<button onclick="saveMsg()">Submit</button>
+<p id="saved"></p>
+
+</div>
+
+</div>
+
+<script>
+
+function showMessage(){
+
+let name=document.getElementById("name").value;
+
+if(name==""){
+alert("Enter your name");
+return;
+}
+
+document.getElementById("form").style.display="none";
+document.getElementById("result").style.display="block";
+
+document.getElementById("title").innerHTML="Happy Friendship Day "+name+" ❤️";
+
+document.getElementById("msg").innerHTML=
+"Dear <b>"+name+
+"</b>, thank you for being an amazing friend. I wish our friendship stays forever 🤝💖";
+}
+
+function openMemory(){
+
+document.getElementById("result").style.display="none";
+document.getElementById("memory").style.display="block";
+
+let old=localStorage.getItem("friendMsg");
+
+if(old){
+document.getElementById("saved").innerHTML=
+"Saved Message:<br><b>"+old+"</b>";
+}
+
+}
+
+function saveMsg(){
+
+let text=document.getElementById("userMsg").value;
+
+localStorage.setItem("friendMsg",text);
+
+document.getElementById("saved").innerHTML=
+"✅ Thank you! Your memory has been saved.<br><br><b>"+text+"</b>";
+
+}
+</script>
+<script src="script.js"></script>
+</body>
+</html>
